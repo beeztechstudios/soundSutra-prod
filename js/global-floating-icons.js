@@ -52,7 +52,8 @@
     
     // WhatsApp Button
     const whatsappBtn = document.createElement('a');
-    whatsappBtn.href = 'https://wa.me/918197687751?text=Hello%20Sound%20Sutra%2C%20I%20hope%20you%20are%20doing%20well.%20I%20would%20like%20to%20inquire%20about%20your%20sound%20healing%20sessions%20and%20understand%20the%20process%2C%20availability%2C%20and%20how%20to%20book.%20Looking%20forward%20to%20your%20guidance.%20Thank%20you.';
+    whatsappBtn.href =
+      "https://wa.me/918197687751?text=Hi%20I%20need%20to%20know%20more%20about%20Sound%20Sutraa%20services";
     whatsappBtn.target = '_blank';
     whatsappBtn.className = 'floating-icon-btn floating-whatsapp-btn';
     whatsappBtn.setAttribute('data-tooltip', 'Chat on WhatsApp');
