@@ -103,14 +103,30 @@
         <img src="${logoSrc}" alt="Sound Sutra Logo" class="mobile-menu-logo">
       </div>
       <nav class="mobile-menu-links">
-        <a href="${window.location.pathname.includes('blog.html') ? 'index.html#benefits' : '#benefits'}" class="mobile-menu-link">Benefits</a>
-        <a href="${window.location.pathname.includes('blog.html') ? 'index.html#formula' : '#formula'}" class="mobile-menu-link">Product</a>
-        <a href="${window.location.pathname.includes('blog.html') ? 'index.html#reviews' : '#reviews'}" class="mobile-menu-link">Reviews</a>
+        <a href="${
+          window.location.pathname.includes("blog.html")
+            ? "index.html#benefits"
+            : "#benefits"
+        }" class="mobile-menu-link">Benefits</a>
+        <a href="${
+          window.location.pathname.includes("blog.html")
+            ? "index.html#formula"
+            : "#formula"
+        }" class="mobile-menu-link">Product</a>
+        <a href="${
+          window.location.pathname.includes("blog.html")
+            ? "index.html#reviews"
+            : "#reviews"
+        }" class="mobile-menu-link">Reviews</a>
         <a href="blog.html" class="mobile-menu-link">Blogs</a>
-        <a href="${window.location.pathname.includes('blog.html') ? 'index.html#faq' : '#faq'}" class="mobile-menu-link">FAQ</a>
+        <a href="${
+          window.location.pathname.includes("blog.html")
+            ? "index.html#faq"
+            : "#faq"
+        }" class="mobile-menu-link">FAQ</a>
       </nav>
       <div class="mobile-menu-cta">
-        <a href="https://wa.me/918197687751?text=Hello%20Sound%20Sutra%2C%20I%20hope%20you%20are%20doing%20well.%20I%20would%20like%20to%20inquire%20about%20your%20sound%20healing%20sessions%20and%20understand%20the%20process%2C%20availability%2C%20and%20how%20to%20book.%20Looking%20forward%20to%20your%20guidance.%20Thank%20you." class="mobile-menu-cta-btn" target="_blank">
+        <a href="https://wa.me/918197687751?text=Hi%20I%20need%20to%20know%20more%20about%20Sound%20Sutraa%20services" class="mobile-menu-cta-btn" target="_blank">
           <span>Book a Session</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.01 11H5C4.45 11 4 11.45 4 12C4 12.55 4.45 13 5 13H16.01V14.79C16.01 15.24 16.55 15.46 16.86 15.14L19.64 12.35C19.83 12.15 19.83 11.84 19.64 11.64L16.86 8.85C16.55 8.53 16.01 8.76 16.01 9.21V11Z" fill="currentColor"/>
