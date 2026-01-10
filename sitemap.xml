@@ -9,14 +9,32 @@
 
 <url>
   <loc>https://www.soundsutraa.com/</loc>
-  <lastmod>2025-12-31T11:01:51+00:00</lastmod>
+  <lastmod>2026-01-10T00:00:00+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://www.soundsutraa.com/blog.html</loc>
-  <lastmod>2025-12-31T11:01:52+00:00</lastmod>
+  <lastmod>2026-01-10T00:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 
-
+<url>
+  <loc>https://www.soundsutraa.com/The-Science-of-Sound-Healing-How-Your-Mind-Is-Transformed.html</loc>
+  <lastmod>2026-01-10T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+  </url>
+<url>
+  <loc>https://www.soundsutraa.com/How-Tibetan-Singing-Bowls-Repair-Your-Cells.html</loc>
+  <lastmod>2026-01-10T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+  </url>
+<url>
+  <loc>https://www.soundsutraa.com/The-Healing-Power-of-Sound-5-Ways-Sound-Bath-Meditation-Relieves-Stress.html</loc>
+  <lastmod>2026-01-10T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+  </url>
 </urlset>
