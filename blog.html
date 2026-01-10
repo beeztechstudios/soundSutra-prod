@@ -97,6 +97,44 @@
       }
     }
   </style>
+
+  <!-- Blog Data Configuration -->
+  <script>
+    // Configure all blog posts here - just edit this JSON to add/update blogs
+    const blogData = {
+      featured: {
+        image: "images/hero-5.png",
+        category: "Sound Healing",
+        readTime: "6 min read",
+        title: "The Healing Power of Sound: 5 Ways Sound Bath Meditation Relieves Stress",
+        description: "Discover how sound bath meditation provides a profoundly gentle yet powerful way to reset your nervous system, quiet your mind, and restore inner equilibrium through ancient wisdom validated by modern neuroscience.",
+        author: "Sound Sutra Team",
+        date: "January 11, 2026",
+        link: "The-Healing-Power-of-Sound-5-Ways-Sound-Bath-Meditation-Relieves-Stress.html"
+      },
+      posts: [
+        {
+          image: "images/hero-2.png",
+          category: "Sound Healing",
+          date: "January 10, 2026",
+          readTime: "5 min read",
+          title: "The Science of Sound Healing: How Your Mind Is Transformed by Frequencies",
+          description: "Discover the fascinating science of how sound frequencies interact with your brain waves, nervous system, and cellular structure to promote healing and wellness.",
+          link: "The-Science-of-Sound-Healing-How-Your-Mind-Is-Transformed.html"
+        },
+        {
+          image: "images/Tibetan_Singing_Bowls.jpg",
+          category: "Sound Healing",
+          date: "January 10, 2026",
+          readTime: "6 min read",
+          title: "The Deep Resonance: How Tibetan Singing Bowls Repair Your Cells",
+          description: "Discover how the ancient practice of Tibetan singing bowls uses resonance and entrainment to repair cells, reduce stress, and activate your body's natural healing processes.",
+          link: "How-Tibetan-Singing-Bowls-Repair-Your-Cells.html"
+        },
+        
+      ]
+    };
+  </script>
 </head>
 
 <body>
@@ -205,41 +243,8 @@
               class="inline-block px-4 py-2 bg-[#9DBB72] text-white rounded-full text-sm font-semibold mb-4">Featured
               Article</span>
           </div>
-          <div class="grid lg:grid-cols-2 gap-12 items-center blog-card bg-[#f7f8f3] rounded-3xl overflow-hidden">
-            <div class="relative h-full min-h-[400px]">
-              <img src="images/hero-2.png" alt="Featured blog post" class="w-full h-full object-cover" />
-            </div>
-            <div class="p-8 lg:p-12">
-              <div class="flex gap-2 mb-4">
-                <span class="blog-tag px-4 py-2 bg-[#3E4F3D] text-white rounded-full text-sm font-semibold">Sound
-                  Healing</span>
-                <span class="blog-tag px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm">5 min read</span>
-              </div>
-              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                The Science Behind Sound Healing: How Frequencies Transform Your Mind
-              </h2>
-              <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                Discover the fascinating science of how sound frequencies interact with your brain waves, nervous
-                system, and cellular structure to promote healing and wellness.
-              </p>
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-12 h-12 bg-[#8FAF6A] rounded-full flex items-center justify-center text-white font-bold">
-                  SS
-                </div>
-                <div>
-                  <p class="font-semibold text-gray-900">Sound Sutra Team</p>
-                  <p class="text-sm text-gray-500">December 20, 2025</p>
-                </div>
-              </div>
-              <a href="#"
-                class="inline-flex items-center gap-2 text-[#8FAF6A] font-semibold hover:gap-4 transition-all">
-                Read Full Article
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
+          <div id="featured-post" class="grid lg:grid-cols-2 gap-12 items-center blog-card bg-[#f7f8f3] rounded-3xl overflow-hidden">
+            <!-- Dynamically generated from blogData.featured -->
           </div>
         </div>
       </section>
@@ -247,206 +252,8 @@
       <!-- Blog Grid -->
       <section class="py-16 bg-[#f7f8f3]">
         <div class="max-w-7xl mx-auto px-6">
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <!-- Blog Card 1 -->
-            <article class="blog-card bg-white rounded-3xl overflow-hidden" data-category="sound-healing">
-              <div class="relative h-64">
-                <img src="images/hero-5.png" alt="Blog post" class="w-full h-full object-cover" />
-                <div class="absolute top-4 left-4">
-                  <span class="blog-tag px-4 py-2 bg-[#3E4F3D] text-white rounded-full text-sm font-semibold">Sound
-                    Healing</span>
-                </div>
-              </div>
-              <div class="p-6">
-                <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
-                  <span>December 18, 2025</span>
-                  <span>•</span>
-                  <span>4 min read</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-[#8FAF6A] transition-colors cursor-pointer">
-                  5 Benefits of Sound Bath Meditation for Stress Relief
-                </h3>
-                <p class="text-gray-600 mb-4 leading-relaxed">
-                  Learn how sound bath meditation can help reduce anxiety, improve sleep quality, and restore inner
-                  peace through vibrational healing.
-                </p>
-                <a href="#"
-                  class="inline-flex items-center gap-2 text-[#8FAF6A] font-semibold hover:gap-4 transition-all">
-                  Read More
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <!-- Blog Card 2 -->
-            <article class="blog-card bg-white rounded-3xl overflow-hidden" data-category="ice-bath">
-              <div class="relative h-64">
-                <img src="images/serviceImg3.jpg" alt="Blog post" class="w-full h-full object-cover" />
-                <div class="absolute top-4 left-4">
-                  <span class="blog-tag px-4 py-2 bg-[#3E4F3D] text-white rounded-full text-sm font-semibold">Ice
-                    Bath</span>
-                </div>
-              </div>
-              <div class="p-6">
-                <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
-                  <span>December 15, 2025</span>
-                  <span>•</span>
-                  <span>6 min read</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-[#8FAF6A] transition-colors cursor-pointer">
-                  Ice Bath Therapy: Building Mental Resilience Through Cold Exposure
-                </h3>
-                <p class="text-gray-600 mb-4 leading-relaxed">
-                  Discover how ice bath therapy strengthens your nervous system, boosts immunity, and develops
-                  unshakeable mental fortitude.
-                </p>
-                <a href="#"
-                  class="inline-flex items-center gap-2 text-[#8FAF6A] font-semibold hover:gap-4 transition-all">
-                  Read More
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <!-- Blog Card 3 -->
-            <article class="blog-card bg-white rounded-3xl overflow-hidden" data-category="wellness">
-              <div class="relative h-64">
-                <img src="images/hero-8.png" alt="Blog post" class="w-full h-full object-cover" />
-                <div class="absolute top-4 left-4">
-                  <span
-                    class="blog-tag px-4 py-2 bg-[#3E4F3D] text-white rounded-full text-sm font-semibold">Wellness</span>
-                </div>
-              </div>
-              <div class="p-6">
-                <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
-                  <span>December 12, 2025</span>
-                  <span>•</span>
-                  <span>5 min read</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-[#8FAF6A] transition-colors cursor-pointer">
-                  Creating Your Home Wellness Sanctuary: A Complete Guide
-                </h3>
-                <p class="text-gray-600 mb-4 leading-relaxed">
-                  Transform your space into a healing sanctuary with expert tips on ambiance, sound, aromatherapy, and
-                  mindful design.
-                </p>
-                <a href="#"
-                  class="inline-flex items-center gap-2 text-[#8FAF6A] font-semibold hover:gap-4 transition-all">
-                  Read More
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <!-- Blog Card 4 -->
-            <article class="blog-card bg-white rounded-3xl overflow-hidden" data-category="meditation">
-              <div class="relative h-64">
-                <img src="images/hero-1.png" alt="Blog post" class="w-full h-full object-cover" />
-                <div class="absolute top-4 left-4">
-                  <span
-                    class="blog-tag px-4 py-2 bg-[#3E4F3D] text-white rounded-full text-sm font-semibold">Meditation</span>
-                </div>
-              </div>
-              <div class="p-6">
-                <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
-                  <span>December 10, 2025</span>
-                  <span>•</span>
-                  <span>7 min read</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-[#8FAF6A] transition-colors cursor-pointer">
-                  Beginner's Guide to Sound Meditation: Start Your Journey Today
-                </h3>
-                <p class="text-gray-600 mb-4 leading-relaxed">
-                  Step-by-step guide for newcomers to sound meditation, including breathing techniques, posture tips,
-                  and what to expect.
-                </p>
-                <a href="#"
-                  class="inline-flex items-center gap-2 text-[#8FAF6A] font-semibold hover:gap-4 transition-all">
-                  Read More
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <!-- Blog Card 5 -->
-            <article class="blog-card bg-white rounded-3xl overflow-hidden" data-category="sound-healing">
-              <div class="relative h-64">
-                <img src="images/serviceImg1.jpg" alt="Blog post" class="w-full h-full object-cover" />
-                <div class="absolute top-4 left-4">
-                  <span class="blog-tag px-4 py-2 bg-[#3E4F3D] text-white rounded-full text-sm font-semibold">Sound
-                    Healing</span>
-                </div>
-              </div>
-              <div class="p-6">
-                <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
-                  <span>December 8, 2025</span>
-                  <span>•</span>
-                  <span>5 min read</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-[#8FAF6A] transition-colors cursor-pointer">
-                  Understanding Chakras and Their Connection to Sound Frequencies
-                </h3>
-                <p class="text-gray-600 mb-4 leading-relaxed">
-                  Explore how specific sound frequencies align with your seven chakras and promote energetic balance
-                  throughout your body.
-                </p>
-                <a href="#"
-                  class="inline-flex items-center gap-2 text-[#8FAF6A] font-semibold hover:gap-4 transition-all">
-                  Read More
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <!-- Blog Card 6 -->
-            <article class="blog-card bg-white rounded-3xl overflow-hidden" data-category="wellness">
-              <div class="relative h-64">
-                <img src="images/hero-3.png" alt="Blog post" class="w-full h-full object-cover" />
-                <div class="absolute top-4 left-4">
-                  <span
-                    class="blog-tag px-4 py-2 bg-[#3E4F3D] text-white rounded-full text-sm font-semibold">Wellness</span>
-                </div>
-              </div>
-              <div class="p-6">
-                <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
-                  <span>December 5, 2025</span>
-                  <span>•</span>
-                  <span>6 min read</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-[#8FAF6A] transition-colors cursor-pointer">
-                  Corporate Wellness: Bringing Sound Healing to Your Workplace
-                </h3>
-                <p class="text-gray-600 mb-4 leading-relaxed">
-                  Learn how companies are integrating sound healing therapy to reduce employee stress, boost
-                  productivity, and improve workplace culture.
-                </p>
-                <a href="#"
-                  class="inline-flex items-center gap-2 text-[#8FAF6A] font-semibold hover:gap-4 transition-all">
-                  Read More
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </article>
-
+          <div id="blog-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamically generated from blogData.posts -->
           </div>
 
           <!-- Load More Button -->
@@ -467,8 +274,10 @@
           <div class="u-padding-section-medium">
             <div class="u-padding-bottom u-padding-xxlarge">
               <div class="w-layout-grid footer_top-wrapper">
-                <a href="index.html" class="footer_logo-wrapper w-inline-block"><img loading="lazy"
-                    src="images/soundsutra_green.svg" alt="" class="footer_image"></a>
+                <div>
+                  <a href="index.html" class="footer_logo-link w-inline-block"><img width="205" loading="lazy"
+                      alt="Sound Sutra Logo" src="images/Image.svg" class="footer_logo"></a>
+                </div>
                 <div class="navbar_menu">
                   <a data-w-id="a576c856-175f-14df-f8a9-ef2ff803bfe2" href="index.html#benefits"
                     class="navbar_link w-inline-block">
@@ -499,18 +308,22 @@
             </div>
             <div class="u-padding-bottom u-padding-medium">
               <div class="footer_content-wrapper">
-                <h1 data-w-id="f00a98c4-abd1-8143-8ba5-704296ac50ed" class="u-heading-style-h3">Feel Energized with <span
-                    class="u-text-color-accent">Organic Matcha</span></h1>
-                <a href="index.html" class="footer_image-wrapper w-inline-block">
-                  <div class="footer_logo-wrapper"><img loading="lazy" src="images/MindMatcha-Logo.svg"
-                      alt="Mind Matcha Logo" class="footer_image"></div>
+                <h1 data-w-id="f00a98c4-abd1-8143-8ba5-704296ac50ed" class="u-heading-style-h3">Transform Your Wellness with <span
+                    class="u-text-color-accent">Sound Healing</span></h1>
+                <a href="https://wa.me/918197687751?text=Hi%20I%20need%20to%20know%20more%20about%20Sound%20Sutraa%20services" class="button is-small is-icon w-inline-block">
+                  <div class="button_content-wrapper">
+                    <div class="cta_text">Book Your Session</div>
+                    <div class="cta_text-absolute">Book Your Session</div>
+                    <div class="icon-in-button w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg></div>
+                    <div class="icon-in-button absolute w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg></div>
+                  </div>
                 </a>
               </div>
             </div>
             <div class="divider-horizontal u-bg-color-light"></div>
             <div class="u-padding-top u-padding-xxlarge">
               <div class="flex justify-center gap-6 mb-8">
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                <a href="https://instagram.com/soundsutraa_" target="_blank" rel="noopener noreferrer"
                   class="footer_legal-link u-text-color-accent hover:opacity-80 transition-opacity"
                   title="Follow us on Instagram">
                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -526,7 +339,7 @@
                       d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                   </svg>
                 </a>
-                <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+                <!-- <a href="https://x.com" target="_blank" rel="noopener noreferrer"
                   class="footer_legal-link u-text-color-accent hover:opacity-80 transition-opacity"
                   title="Follow us on Twitter">
                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -541,18 +354,18 @@
                     <path
                       d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                   </svg>
-                </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                </a> -->
+                <!-- <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
                   class="footer_legal-link u-text-color-accent hover:opacity-80 transition-opacity"
                   title="Follow us on LinkedIn">
                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                     <path
                       d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
                   </svg>
-                </a>
+                </a> -->
               </div>
               <div class="footer_bottom-wrapper">
-                <div class="footer_credit-text">© 2025 Sound Sutra. All rights reserved.</div>
+                <div class="footer_credit-text">© 2026 Sound Sutra. All rights reserved.</div>
                 <div class="footer_credit-text">Powered by: <a href="https://beeztech.studio/" target="_blank"
                     class="footer_legal-link u-text-color-accent">Beeztech</a>
                 </div>
@@ -569,6 +382,74 @@
     type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
+
+  <!-- Dynamic Blog Generator Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Generate Featured Post
+      const featured = blogData.featured;
+      document.getElementById('featured-post').innerHTML = `
+        <div class="relative h-full min-h-[400px]">
+          <img src="${featured.image}" alt="Featured blog post" class="w-full h-full object-cover" />
+        </div>
+        <div class="p-8 lg:p-12">
+          <div class="flex gap-2 mb-4">
+            <span class="blog-tag px-4 py-2 bg-[#3E4F3D] text-white rounded-full text-sm font-semibold">${featured.category}</span>
+            <span class="blog-tag px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm">${featured.readTime}</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">${featured.title}</h2>
+          <p class="text-gray-600 text-lg mb-6 leading-relaxed">${featured.description}</p>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-[#8FAF6A] rounded-full flex items-center justify-center text-white font-bold">SS</div>
+            <div>
+              <p class="font-semibold text-gray-900">${featured.author}</p>
+              <p class="text-sm text-gray-500">${featured.date}</p>
+            </div>
+          </div>
+          <a href="${featured.link}" class="inline-flex items-center gap-2 text-[#8FAF6A] font-semibold hover:gap-4 transition-all">
+            Read Full Article
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      `;
+
+      // Generate Blog Grid Cards
+      const blogGrid = document.getElementById('blog-grid');
+      blogData.posts.forEach(post => {
+        const article = document.createElement('article');
+        article.className = 'blog-card bg-white rounded-3xl overflow-hidden';
+        article.setAttribute('data-category', post.category.toLowerCase().replace(/\s+/g, '-'));
+        
+        article.innerHTML = `
+          <div class="relative h-64">
+            <img src="${post.image}" alt="Blog post" class="w-full h-full object-cover" />
+            <div class="absolute top-4 left-4">
+              <span class="blog-tag px-4 py-2 bg-[#3E4F3D] text-white rounded-full text-sm font-semibold">${post.category}</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+              <span>${post.date}</span>
+              <span>•</span>
+              <span>${post.readTime}</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-[#8FAF6A] transition-colors cursor-pointer">${post.title}</h3>
+            <p class="text-gray-600 mb-4 leading-relaxed">${post.description}</p>
+            <a href="${post.link}" class="inline-flex items-center gap-2 text-[#8FAF6A] font-semibold hover:gap-4 transition-all">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        `;
+        
+        blogGrid.appendChild(article);
+      });
+    });
+  </script>
 
   <!-- Global Floating Icons JS -->
   <script src="js/global-floating-icons.min.js" type="text/javascript"></script>
