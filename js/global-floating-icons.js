@@ -100,7 +100,7 @@
     
     container.innerHTML = `
       <div class="mobile-menu-header">
-        <img src="${logoSrc}" alt="Sound Sutra Logo" class="mobile-menu-logo">
+        <img src="${logoSrc}" alt="Sound sutraa Logo" class="mobile-menu-logo">
       </div>
       <nav class="mobile-menu-links">
         <a href="${
