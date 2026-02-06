@@ -6,21 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Primary SEO -->
-<meta name="title" content="Sound Healing Insights & Wellness Tips | Sound Sutraa Blog">
-<meta name="description"
-  content="Explore expert articles on sound healing benefits for anxiety, ice bath therapy, corporate wellness, and holistic healing practices. Your guide to stress-free living in India.">
-<meta name="keywords"
-  content="sound healing benefits for anxiety, ice bath therapy benefits, corporate wellness programs India, tuning fork healing therapy, sound bowl healing, chakra balancing sound therapy, employee stress management activities, Tibetan singing bowl therapy, frequency healing for burnout, wellness blog India">
-<meta name="robots" content="index, follow">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="revisit-after" content="1 day">
-<meta name="description" content="English">
-<meta property="og:title" content="Sound Healing & Wellness Blog | Expert Tips by Sound Sutraa">
-<meta property="og:site_name" content="Sound Sutraa">
-<meta property="og:url" content="https://www.soundsutraa.com/blog.html">
-<meta property="og:description"
-  content="Discover the science and benefits of sound healing, ice baths, and holistic wellness practices. Read authentic insights from Bangalore's leading sound therapy experts.">
-<meta property="og:type" content="website">
+  <meta name="title" content="Sound Healing Insights & Wellness Tips | Sound Sutraa Blog">
+  <meta name="description"
+    content="Explore expert articles on sound healing benefits for anxiety, ice bath therapy, corporate wellness, and holistic healing practices. Your guide to stress-free living in India.">
+  <meta name="keywords"
+    content="sound healing benefits for anxiety, ice bath therapy benefits, corporate wellness programs India, tuning fork healing therapy, sound bowl healing, chakra balancing sound therapy, employee stress management activities, Tibetan singing bowl therapy, frequency healing for burnout, wellness blog India">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="revisit-after" content="1 day">
+  <meta name="description" content="English">
+  <meta property="og:title" content="Sound Healing & Wellness Blog | Expert Tips by Sound Sutraa">
+  <meta property="og:site_name" content="Sound Sutraa">
+  <meta property="og:url" content="https://www.soundsutraa.com/blog.html">
+  <meta property="og:description"
+    content="Discover the science and benefits of sound healing, ice baths, and holistic wellness practices. Read authentic insights from Bangalore's leading sound therapy experts.">
+  <meta property="og:type" content="website">
 
   <!-- Tailwind (Safe via CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -98,9 +98,68 @@
     }
   </style>
 
-  <!-- Blog Data Configuration -->
+  <!-- Sanity Client Integration -->
+  <script src="js/sanity-client.js"></script>
   <script>
-    // Configure all blog posts here - just edit this JSON to add/update blogs
+    // Sanity Query to fetch posts
+    const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) {
+      ...,
+      "author": author->name,
+      "category": categories[0]->title
+    }`;
+
+    async function loadBlogs() {
+      console.log('Attempting to load blogs from Sanity ID:', typeof SANITY_PROJECT_ID !== 'undefined' ? SANITY_PROJECT_ID : 'Missing');
+
+      // Check if project ID is set (either as constant or on window)
+      const currentID = typeof SANITY_PROJECT_ID !== 'undefined' ? SANITY_PROJECT_ID : window.SANITY_PROJECT_ID;
+
+      if (!currentID || currentID === 'YOUR_PROJECT_ID') {
+        console.warn('Sanity Project ID not set, using fallback data');
+        renderBlogs(blogData);
+        return;
+      }
+
+      try {
+        const posts = await sanityClient.fetch(POSTS_QUERY);
+        if (posts && posts.length > 0) {
+          console.log('Successfully fetched posts:', posts.length);
+          const featured = posts[0];
+          const otherPosts = posts.slice(1);
+
+          const sanityData = {
+            featured: {
+              image: sanityClient.imageUrl(featured.mainImage),
+              category: featured.category || "Wellness",
+              readTime: featured.readTime || "5 min read",
+              title: featured.title,
+              description: featured.description,
+              author: featured.author || "Sound Sutraa Team",
+              date: new Date(featured.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+              link: `post.html?slug=${featured.slug.current}`
+            },
+            posts: otherPosts.map(post => ({
+              image: sanityClient.imageUrl(post.mainImage),
+              category: post.category || "Wellness",
+              date: new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+              readTime: post.readTime || "5 min read",
+              title: post.title,
+              description: post.description,
+              link: `post.html?slug=${post.slug.current}`
+            }))
+          };
+          renderBlogs(sanityData);
+        } else {
+          console.warn('No posts found in Sanity, falling back to dummy data');
+          renderBlogs(blogData);
+        }
+      } catch (error) {
+        console.error('Failed to fetch from Sanity:', error);
+        renderBlogs(blogData);
+      }
+    }
+
+    // Configure fallback blog posts
     const blogData = {
       featured: {
         image: "images/hero-5.png",
@@ -131,7 +190,6 @@
           description: "Discover how the ancient practice of Tibetan singing bowls uses resonance and entrainment to repair cells, reduce stress, and activate your body's natural healing processes.",
           link: "How-Tibetan-Singing-Bowls-Repair-Your-Cells.html"
         },
-        
       ]
     };
   </script>
@@ -243,7 +301,8 @@
               class="inline-block px-4 py-2 bg-[#9DBB72] text-white rounded-full text-sm font-semibold mb-4">Featured
               Article</span>
           </div>
-          <div id="featured-post" class="grid lg:grid-cols-2 gap-12 items-center blog-card bg-[#f7f8f3] rounded-3xl overflow-hidden">
+          <div id="featured-post"
+            class="grid lg:grid-cols-2 gap-12 items-center blog-card bg-[#f7f8f3] rounded-3xl overflow-hidden">
             <!-- Dynamically generated from blogData.featured -->
           </div>
         </div>
@@ -294,7 +353,8 @@
                     <div class="navbar_text">Reviews</div>
                     <div class="navbar_text absolute">Reviews</div>
                   </a>
-                  <a data-w-id="adc9a7a9-85fd-d2a4-622d-511a96bc3fb5" href="blog.html" class="navbar_link w-inline-block">
+                  <a data-w-id="adc9a7a9-85fd-d2a4-622d-511a96bc3fb5" href="blog.html"
+                    class="navbar_link w-inline-block">
                     <div class="navbar_text">Blogs</div>
                     <div class="navbar_text absolute">Blogs</div>
                   </a>
@@ -308,14 +368,21 @@
             </div>
             <div class="u-padding-bottom u-padding-medium">
               <div class="footer_content-wrapper">
-                <h1 data-w-id="f00a98c4-abd1-8143-8ba5-704296ac50ed" class="u-heading-style-h3">Transform Your Wellness with <span
-                    class="u-text-color-accent">Sound Healing</span></h1>
-                <a href="https://wa.me/918197687751?text=Hi%20I%20need%20to%20know%20more%20about%20Sound%20Sutraa%20services" class="button is-small is-icon w-inline-block">
+                <h1 data-w-id="f00a98c4-abd1-8143-8ba5-704296ac50ed" class="u-heading-style-h3">Transform Your Wellness
+                  with <span class="u-text-color-accent">Sound Healing</span></h1>
+                <a href="https://wa.me/918197687751?text=Hi%20I%20need%20to%20know%20more%20about%20Sound%20Sutraa%20services"
+                  class="button is-small is-icon w-inline-block">
                   <div class="button_content-wrapper">
                     <div class="cta_text">Book Your Session</div>
                     <div class="cta_text-absolute">Book Your Session</div>
-                    <div class="icon-in-button w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg></div>
-                    <div class="icon-in-button absolute w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg></div>
+                    <div class="icon-in-button w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                        height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg></div>
+                    <div class="icon-in-button absolute w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                        height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg></div>
                   </div>
                 </a>
               </div>
@@ -385,9 +452,13 @@
 
   <!-- Dynamic Blog Generator Script -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    function renderBlogs(data) {
+      // Clear existing content
+      document.getElementById('featured-post').innerHTML = '';
+      document.getElementById('blog-grid').innerHTML = '';
+
       // Generate Featured Post
-      const featured = blogData.featured;
+      const featured = data.featured;
       document.getElementById('featured-post').innerHTML = `
         <div class="relative h-full min-h-[400px]">
           <img src="${featured.image}" alt="Featured blog post" class="w-full h-full object-cover" />
@@ -417,11 +488,11 @@
 
       // Generate Blog Grid Cards
       const blogGrid = document.getElementById('blog-grid');
-      blogData.posts.forEach(post => {
+      data.posts.forEach(post => {
         const article = document.createElement('article');
         article.className = 'blog-card bg-white rounded-3xl overflow-hidden';
         article.setAttribute('data-category', post.category.toLowerCase().replace(/\s+/g, '-'));
-        
+
         article.innerHTML = `
           <div class="relative h-64">
             <img src="${post.image}" alt="Blog post" class="w-full h-full object-cover" />
@@ -445,10 +516,12 @@
             </a>
           </div>
         `;
-        
+
         blogGrid.appendChild(article);
       });
-    });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadBlogs);
   </script>
 
   <!-- Global Floating Icons JS -->

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html data-wf-page="blog-details" data-wf-site="6947ac1aa13dd4b80ffb339c" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title id="meta-title">Blog Details | Sound Sutraa</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="css/normalize.css" rel="stylesheet" />
+    <link href="css/webflow.css" rel="stylesheet" />
+    <link href="css/beeztechs-ultra-awesome-s-eb15d1b5802ca.webflow.css" rel="stylesheet" />
+
+    <style>
+        .rich-text-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .rich-text-content p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #4a4a4a;
+        }
+
+        .rich-text-content ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rich-text-content li {
+            margin-bottom: 0.5rem;
+            color: #4a4a4a;
+        }
+
+        .rich-text-content strong {
+            font-weight: 600;
+            color: #2c382b;
+        }
+
+        .blog-header-gradient {
+            background: linear-gradient(180deg, #3E4F3D 0%, #2c382b 100%);
+        }
+
+        .featured-image-container {
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            margin-top: -100px;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-[#f7f8f3]">
+    <div id="loading" class="loading-overlay">
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#3E4F3D]"></div>
+    </div>
+
+    <!-- Sanity Integration -->
+    <script src="js/sanity-client.js"></script>
+    <script>
+        // Simple Portable Text to HTML converter
+        function portableTextToHtml(blocks) {
+            if (!blocks) return '';
+            return blocks.map(block => {
+                if (block._type !== 'block' || !block.children) {
+                    if (block._type === 'image') {
+                        return `<img src="${sanityClient.imageUrl(block)}" alt="Blog image" class="my-8 rounded-xl w-full" />`;
+                    }
+                    return '';
+                }
+
+                const text = block.children.map(child => child.text).join('');
+
+                switch (block.style) {
+                    case 'h1': return `<h1>${text}</h1>`;
+                    case 'h2': return `<h2>${text}</h2>`;
+                    case 'h3': return `<h3>${text}</h3>`;
+                    case 'blockquote': return `<blockquote>${text}</blockquote>`;
+                    default:
+                        if (block.listItem === 'bullet') return `<li>${text}</li>`;
+                        return `<p>${text}</p>`;
+                }
+            }).join('');
+        }
+
+        async function loadPost() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug');
+
+            if (!slug) {
+                window.location.href = 'blog.html';
+                return;
+            }
+
+            const query = `*[_type == "post" && slug.current == "${slug}"][0]{
+                ...,
+                "author": author->name,
+                "category": categories[0]->title
+            }`;
+
+            try {
+                const post = await sanityClient.fetch(query);
+                if (post) {
+                    document.getElementById('meta-title').innerText = `${post.title} | Sound Sutraa`;
+                    document.getElementById('display-category').innerText = post.category || 'Wellness';
+                    document.getElementById('display-title').innerText = post.title;
+                    document.getElementById('display-author').innerText = post.author || 'Sound Sutraa Team';
+                    document.getElementById('display-date').innerText = new Date(post.publishedAt).toLocaleDateString();
+                    document.getElementById('display-readtime').innerText = post.readTime || '';
+                    document.getElementById('display-image').src = sanityClient.imageUrl(post.mainImage);
+                    document.getElementById('display-content').innerHTML = portableTextToHtml(post.body);
+                } else {
+                    // Post not found
+                    document.getElementById('display-title').innerText = 'Post Not Found';
+                }
+            } catch (error) {
+                console.error('Error loading post:', error);
+            } finally {
+                document.getElementById('loading').style.opacity = '0';
+                setTimeout(() => document.getElementById('loading').style.display = 'none', 500);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadPost);
+    </script>
+
+    <div class="u-page-wrapper">
+        <div class="navbar_component w-nav bg-[#3E4F3D] py-4">
+            <div class="navbar_container flex justify-between items-center px-6">
+                <a href="index.html" class="navbar_logo-link"><img width="160" src="images/Image.svg" alt="Logo"></a>
+                <a href="blog.html" class="text-white hover:text-[#9DBB72] transition-colors font-medium">← Back to
+                    Blogs</a>
+            </div>
+        </div>
+
+        <main>
+            <header class="blog-header-gradient pt-24 pb-32 px-6 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <div class="inline-block px-4 py-1 bg-[#8FAF6A]/20 rounded-full mb-6">
+                        <span id="display-category"
+                            class="text-[#9DBB72] font-semibold uppercase tracking-wider text-sm"></span>
+                    </div>
+                    <h1 id="display-title" class="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                    </h1>
+                    <div class="mt-8 flex items-center justify-center gap-6 text-gray-300">
+                        <div class="flex items-center gap-2">
+                            <div
+                                class="w-8 h-8 bg-[#8FAF6A] rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                SS</div>
+                            <span id="display-author"></span>
+                        </div>
+                        <span id="display-date"></span>
+                        <span id="display-readtime"></span>
+                    </div>
+                </div>
+            </header>
+
+            <section class="px-6">
+                <div class="max-w-5xl mx-auto featured-image-container">
+                    <img id="display-image" src="" alt="Blog Featured Image"
+                        class="w-full h-[300px] md:h-[500px] object-cover" />
+                </div>
+            </section>
+
+            <section class="py-16 px-6">
+                <div class="max-w-3xl mx-auto">
+                    <div id="display-content" class="rich-text-content"></div>
+                </div>
+            </section>
+
+            <footer class="py-12 px-6 bg-white text-center">
+                <img src="images/soundsutra_green.svg" alt="Sound sutraa" class="h-12 mx-auto mb-6">
+                <p class="text-gray-500 text-sm">© 2026 Sound Sutraa. Powered by Beeztech.</p>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>
