@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html data-wf-page="healing-tools-page" data-wf-site="6947ac1aa13dd4b80ffb339c" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Primary SEO -->
+  <meta name="title" content="Healing Tools for Calm & Balance | Premium Crystals & Wellness Accessories">
+  <meta name="description"
+    content="Explore our curated collection of healing tools: crystals, ritual essentials, and wellness accessories for calm, grounding, prosperity, clarity, and spiritual cleansing. Designed to complement sound healing practices.">
+  <meta name="keywords"
+    content="healing tools, crystals for anxiety, grounding stones, prosperity crystals, clarity tools, ritual essentials, wellness accessories">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  <meta name="author" content="Sound Sutra">
+  <meta property="og:title" content="Healing Tools for Calm & Balance | Sound Sutra">
+  <meta property="og:site_name" content="Sound Sutra">
+  <meta property="og:url" content="https://www.soundsutraa.com/healing-tools.html">
+  <meta property="og:description"
+    content="Curated crystals, ritual essentials, and wellness accessories for sound healing and spiritual practices.">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind (Safe via CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Webflow Required CSS (DO NOT REMOVE) -->
+  <link href="css/normalize.css" rel="stylesheet" />
+  <link href="css/webflow.css" rel="stylesheet" />
+  <link href="css/beeztechs-ultra-awesome-s-eb15d1b5802ca.webflow.css" rel="stylesheet" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Outfit:400,500,600,700", "Poppins:400,500,600,700"],
+      },
+    });
+  </script>
+
+  <!-- Webflow Core Script (DO NOT REMOVE) -->
+  <script>
+    !(function (o, c) {
+      var n = c.documentElement,
+        t = " w-mod-";
+      n.className += t + "js";
+      ("ontouchstart" in o ||
+        (o.DocumentTouch && c instanceof DocumentTouch)) &&
+        (n.className += t + "touch");
+    })(window, document);
+  </script>
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="images/favicon.ico" />
+  <link rel="apple-touch-icon" href="images/webclip.svg" />
+
+  <!-- Global Floating Icons CSS -->
+  <link rel="stylesheet" href="css/global-floating-icons.css" />
+
+  <!-- Custom Styles -->
+  <style>
+    .blog-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .blog-tag {
+      transition: background-color 0.3s ease;
+    }
+
+    .blog-tag:hover {
+      background-color: #8FAF6A;
+    }
+
+    /* Extra offset to avoid navbar overlap on mobile */
+    .blog-hero {
+      padding-top: 9rem !important;
+    }
+
+    @media (min-width: 640px) {
+      .blog-hero {
+        padding-top: 10rem !important;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .blog-hero {
+        padding-top: 11rem !important;
+      }
+    }
+  </style>
+
+  <!-- Healing Tools Categories -->
+  <script>
+    // Healing Tools Categories Data
+    const categoriesData = [
+      {
+        image: "images/calm.jpg",
+        title: "Calm & Anxiety",
+        description: "Soothing crystals and gentle wellness tools to ease tension and promote tranquility.",
+        link: "healing-tools-calm.html"
+      },
+      {
+        image: "images/protection.jpg",
+        title: "Grounding & Protection",
+        description: "Anchoring essentials and protective stones to root your energy and shield your space.",
+        link: "healing-tools-protection.html"
+      },
+      {
+        image: "images/prosperity.jpg",
+        title: "Prosperity & Confidence",
+        description: "Empowering tools and abundance crystals to elevate your strength and magnetism.",
+        link: "healing-tools-prosperity.html"
+      },
+      {
+        image: "images/clarity.jpg",
+        title: "Communication & Clarity",
+        description: "Truth-resonating stones and clarity tools to enhance expression and insight.",
+        link: "healing-tools-clarity.html"
+      },
+      {
+        image: "images/rituals.jpg",
+        title: "Ritual & Cleansing Tools",
+        description: "Sacred essentials and purification tools to elevate your spiritual practice.",
+        link: "healing-tools-rituals.html"
+      }
+    ];
+
+    function renderCategories() {
+      const categoriesGrid = document.getElementById('categories-grid');
+      if (!categoriesGrid) return;
+      
+      categoriesGrid.innerHTML = '';
+
+      categoriesData.forEach(category => {
+        const card = document.createElement('article');
+        card.className = 'blog-card bg-white rounded-3xl overflow-hidden';
+
+        card.innerHTML = `
+          <div class="relative h-64">
+            <img src="${category.image}" alt="${category.title}" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-3 text-[#374b3c]">${category.title}</h3>
+            <p class="text-gray-600 mb-4 leading-relaxed">${category.description}</p>
+            <a href="${category.link}" class="inline-block px-6 py-2 bg-[#a5c686] text-[#374b3c] font-semibold rounded hover:bg-[#374b3c] hover:text-white transition-all">
+              Explore
+            </a>
+          </div>
+        `;
+
+        categoriesGrid.appendChild(card);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', renderCategories);
+  </script>
+</head>
+
+<body>
+  <div class="u-page-wrapper">
+    <main class="u-main-wrapper">
+      <!-- Navigation -->
+      <div data-animation="default" class="navbar_component w-nav" data-easing2="ease" data-easing="ease"
+        data-collapse="none" data-w-id="229638e7-96c7-b9ce-603e-a1e3a44f4e1b" role="banner" data-duration="400"
+        id="navbar">
+        <div class="navbar_container">
+          <a href="index.html" class="navbar_logo-link w-nav-brand"><img width="205" loading="lazy"
+              alt="Sound Sutraa Logo" src="images/Image.svg" class="navbar_logo"></a>
+          <nav role="navigation" id="w-node-_229638e7-96c7-b9ce-603e-a1e3a44f4e1f-a44f4e1b"
+            class="navbar_menu u-hide-tablet w-nav-menu">
+            <div class="navbar_menu">
+              <a data-w-id="a576c856-175f-14df-f8a9-ef2ff803bfe2" href="index.html#benefits"
+                class="navbar_link w-inline-block">
+                <div class="navbar_text text-white">Benefits</div>
+                <div class="navbar_text text-white absolute">Benefits</div>
+              </a>
+              <a data-w-id="a576c856-175f-14df-f8a9-ef2ff803bfe8" href="healing-tools.html"
+                class="navbar_link w-inline-block">
+                <div class="navbar_text text-white ">Product</div>
+                <div class="navbar_text text-white absolute">Product</div>
+              </a>
+              <a data-w-id="a576c856-175f-14df-f8a9-ef2ff803bfee" href="index.html#reviews"
+                class="navbar_link w-inline-block">
+                <div class="navbar_text text-white">Reviews</div>
+                <div class="navbar_text  text-white absolute">Reviews</div>
+              </a>
+              <a data-w-id="adc9a7a9-85fd-d2a4-622d-511a96bc3fb5" href="blog.html" class="navbar_link w-inline-block">
+                <div class="navbar_text text-white ">Blogs</div>
+                <div class="navbar_text text-white absolute">Blogs</div>
+              </a>
+              <a data-w-id="a576c856-175f-14df-f8a9-ef2ff803bff4" href="index.html#faq"
+                class="navbar_link w-inline-block">
+                <div class="navbar_text text-white ">FAQ</div>
+                <div class="navbar_text text-white absolute">FAQ</div>
+              </a>
+            </div>
+          </nav>
+          <div id="w-node-_229638e7-96c7-b9ce-603e-a1e3a44f4e38-a44f4e1b" class="navbar_button-wrapper u-hide-tablet">
+            <div class="navbar_menu-button w-nav-button">
+              <div class="menu-icon">
+                <div class="menu-icon_line-top"></div>
+                <div class="menu-icon_line-middle">
+                  <div class="menu-icon_line-middle-inner"></div>
+                </div>
+                <div class="menu-icon_line-bottom"></div>
+              </div>
+            </div>
+            <a data-w-id="34bd2fd9-0f48-4444-ce45-1120106eafda"
+              href="https://wa.me/918197687751?text=Hi%20I%20need%20to%20know%20more%20about%20Sound%20Sutraa%20services"
+              class="button is-small is-icon w-inline-block">
+              <div class="button_content-wrapper">
+                <div class="cta_text">Book a Session</div>
+                <div class="cta_text-absolute">Book a Session</div>
+                <div class="icon-in-button w-embed"><svg xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic"
+                    width="100%" height="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
+                    <path fill="currentColor"
+                      d="M16.01 11H5c-.55 0-1 .45-1 1s.45 1 1 1h11.01v1.79c0 .45.54.67.85.35l2.78-2.79c.19-.2.19-.51 0-.71l-2.78-2.79c-.31-.32-.85-.09-.85.35z">
+                    </path>
+                  </svg></div>
+                <div class="icon-in-button absolute w-embed"><svg xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--ic"
+                    width="100%" height="100%" preserveaspectratio="xMidYMid meet" viewbox="0 0 24 24">
+                    <path fill="currentColor"
+                      d="M16.01 11H5c-.55 0-1 .45-1 1s.45 1 1 1h11.01v1.79c0 .45.54.67.85.35l2.78-2.79c.19-.2.19-.51 0-.71l-2.78-2.79c-.31-.32-.85-.09-.85.35z">
+                    </path>
+                  </svg></div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Section -->
+      <section class="blog-hero pb-16 sm:pb-20 lg:pb-28 bg-[#3E4F3D] relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-10 left-10 w-32 h-32 bg-[#8FAF6A] rounded-full blur-3xl"></div>
+          <div class="absolute bottom-10 right-10 w-48 h-48 bg-[#8FAF6A] rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="text-center max-w-4xl mx-auto space-y-4 sm:space-y-6">
+            <div class="inline-block px-4 py-2 bg-[#8FAF6A]/20 rounded-full">
+              <span class="text-[#9DBB72] font-semibold">Curated Wellness Collection</span>
+            </div>
+            <h1
+              class="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight sm:leading-tight lg:leading-[1.1]">
+              Healing Tools for <span class="text-[#9DBB72]">Calm & Balance</span>
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+              Crystals, ritual essentials, and wellness accessories designed to complement sound healing practices.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories Grid -->
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+          <div id="categories-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamically generated from categoriesData -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="section_footer u-color-scheme-2 u-section_alternate-padding">
+      <div class="u-padding-global">
+        <div class="u-container-large">
+          <div class="u-padding-section-medium">
+            <div class="u-padding-bottom u-padding-xxlarge">
+              <div class="w-layout-grid footer_top-wrapper">
+                <div>
+                  <a href="index.html" class="footer_logo-link w-inline-block"><img width="205" loading="lazy"
+                      alt="Sound Sutraa Logo" src="images/Image.svg" class="footer_logo"></a>
+                </div>
+                <div class="navbar_menu">
+                  <a data-w-id="a576c856-175f-14df-f8a9-ef2ff803bfe2" href="index.html#benefits"
+                    class="navbar_link w-inline-block">
+                    <div class="navbar_text">Benefits</div>
+                    <div class="navbar_text absolute">Benefits</div>
+                  </a>
+                  <a data-w-id="a576c856-175f-14df-f8a9-ef2ff803bfe8" href="index.html#product_sell"
+                    class="navbar_link w-inline-block">
+                    <div class="navbar_text">Product</div>
+                    <div class="navbar_text absolute">Product</div>
+                  </a>
+                  <a data-w-id="a576c856-175f-14df-f8a9-ef2ff803bfee" href="index.html#reviews"
+                    class="navbar_link w-inline-block">
+                    <div class="navbar_text">Reviews</div>
+                    <div class="navbar_text absolute">Reviews</div>
+                  </a>
+                  <a data-w-id="adc9a7a9-85fd-d2a4-622d-511a96bc3fb5" href="blog.html"
+                    class="navbar_link w-inline-block">
+                    <div class="navbar_text">Blogs</div>
+                    <div class="navbar_text absolute">Blogs</div>
+                  </a>
+                  <a data-w-id="a576c856-175f-14df-f8a9-ef2ff803bff4" href="index.html#faq"
+                    class="navbar_link w-inline-block">
+                    <div class="navbar_text">FAQ</div>
+                    <div class="navbar_text absolute">FAQ</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="u-padding-bottom u-padding-medium">
+              <div class="footer_content-wrapper">
+                <h1 data-w-id="f00a98c4-abd1-8143-8ba5-704296ac50ed" class="u-heading-style-h3">Transform Your Wellness
+                  with <span class="u-text-color-accent">Sound Healing</span></h1>
+                <a href="https://wa.me/918197687751?text=Hi%20I%20need%20to%20know%20more%20about%20Sound%20Sutraa%20services"
+                  class="button is-small is-icon w-inline-block">
+                  <div class="button_content-wrapper">
+                    <div class="cta_text">Book Your Session</div>
+                    <div class="cta_text-absolute">Book Your Session</div>
+                    <div class="icon-in-button w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                        height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg></div>
+                    <div class="icon-in-button absolute w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                        height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="divider-horizontal u-bg-color-light"></div>
+            <div class="u-padding-top u-padding-xxlarge">
+              <div class="flex justify-center gap-6 mb-8">
+                <a href="https://instagram.com/soundsutraa_" target="_blank" rel="noopener noreferrer"
+                  class="footer_legal-link u-text-color-accent hover:opacity-80 transition-opacity"
+                  title="Follow us on Instagram">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.646.069 4.85 0 3.204-.012 3.584-.07 4.85-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
+                  </svg>
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                  class="footer_legal-link u-text-color-accent hover:opacity-80 transition-opacity"
+                  title="Follow us on Facebook">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+                <!-- <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+                  class="footer_legal-link u-text-color-accent hover:opacity-80 transition-opacity"
+                  title="Follow us on Twitter">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M23.953 4.57a10 10 0 002.856-3.715v-2a11.955 11.955 0 01-3.422 1.06 5.95 5.95 0 002.605-3.28c-1.143.678-2.404 1.17-3.75 1.437A5.942 5.942 0 0016.725 2c-3.276 0-5.93 2.655-5.93 5.93 0 .465.055.917.16 1.355-4.92-.244-9.304-2.604-12.231-6.188a5.88 5.88 0 001.831 7.925A5.9 5.9 0 01.64 9.486v.074c0 2.868 2.044 5.268 4.759 5.81a5.935 5.935 0 01-2.68.102 5.94 5.94 0 005.54 4.122A11.94 11.94 0 010 19.742a16.902 16.902 0 009.173 2.686c11.016 0 17.032-9.124 17.032-17.032 0-.259-.005-.517-.015-.774A12.154 12.154 0 0023.953 4.57z" />
+                  </svg>
+                </a>
+                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"
+                  class="footer_legal-link u-text-color-accent hover:opacity-80 transition-opacity"
+                  title="Subscribe on YouTube">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                </a> -->
+                <!-- <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                  class="footer_legal-link u-text-color-accent hover:opacity-80 transition-opacity"
+                  title="Follow us on LinkedIn">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+                  </svg>
+                </a> -->
+              </div>
+              <div class="footer_bottom-wrapper">
+                <div class="footer_credit-text">© 2026 Sound Sutraa. All rights reserved.</div>
+                <div class="footer_credit-text">Powered by: <a href="https://beeztech.studio/" target="_blank"
+                    class="footer_legal-link u-text-color-accent">Beeztech</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6947ac1aa13dd4b80ffb339c"
+    type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+
+  <!-- Dynamic Blog Generator Script -->
+  <script>
+    function renderBlogs(data) {
+      // Clear existing content
+      document.getElementById('featured-post').innerHTML = '';
+      document.getElementById('blog-grid').innerHTML = '';
+
+      // Generate Featured Post
+      const featured = data.featured;
+      document.getElementById('featured-post').innerHTML = `
+        <div class="relative h-full min-h-[400px]">
+          <img src="${featured.image}" alt="Featured blog post" class="w-full h-full object-cover" />
+        </div>
+        <div class="p-8 lg:p-12">
+          <div class="flex gap-2 mb-4">
+            <span class="blog-tag px-4 py-2 bg-[#3E4F3D] text-white rounded-full text-sm font-semibold">${featured.category}</span>
+            <span class="blog-tag px-4 py-2 bg-gray-200 text-gray-800 rounded-full text-sm">${featured.readTime}</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">${featured.title}</h2>
+          <p class="text-gray-600 text-lg mb-6 leading-relaxed">${featured.description}</p>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-[#8FAF6A] rounded-full flex items-center justify-center text-white font-bold">SS</div>
+            <div>
+              <p class="font-semibold text-gray-900">${featured.author}</p>
+              <p class="text-sm text-gray-500">${featured.date}</p>
+            </div>
+          </div>
+          <a href="${featured.link}" class="inline-flex items-center gap-2 text-[#8FAF6A] font-semibold hover:gap-4 transition-all">
+            Read Full Article
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      `;
+
+      // Generate Blog Grid Cards
+      const blogGrid = document.getElementById('blog-grid');
+      data.posts.forEach(post => {
+        const article = document.createElement('article');
+        article.className = 'blog-card bg-white rounded-3xl overflow-hidden';
+        article.setAttribute('data-category', post.category.toLowerCase().replace(/\s+/g, '-'));
+
+        article.innerHTML = `
+          <div class="relative h-64">
+            <img src="${post.image}" alt="Blog post" class="w-full h-full object-cover" />
+            <div class="absolute top-4 left-4">
+              <span class="blog-tag px-4 py-2 bg-[#3E4F3D] text-white rounded-full text-sm font-semibold">${post.category}</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+              <span>${post.date}</span>
+              <span>•</span>
+              <span>${post.readTime}</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3 hover:text-[#8FAF6A] transition-colors cursor-pointer">${post.title}</h3>
+            <p class="text-gray-600 mb-4 leading-relaxed">${post.description}</p>
+            <a href="${post.link}" class="inline-flex items-center gap-2 text-[#8FAF6A] font-semibold hover:gap-4 transition-all">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        `;
+
+        blogGrid.appendChild(article);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', renderCategories);
+  </script>
+
+  <!-- Global Floating Icons JS -->
+  <script src="js/global-floating-icons.min.js" type="text/javascript"></script>
+</body>
+
+</html>
