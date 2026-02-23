@@ -44,6 +44,20 @@
             color: #2c382b;
         }
 
+        .rich-text-content a,
+        .rich-text-link {
+            color: #2563eb;
+            text-decoration: underline;
+            text-decoration-color: #2563eb;
+            transition: color 0.2s ease;
+        }
+
+        .rich-text-content a:hover,
+        .rich-text-link:hover {
+            color: #1d4ed8;
+            text-decoration-color: #1d4ed8;
+        }
+
         .blog-header-gradient {
             background: linear-gradient(180deg, #3E4F3D 0%, #2c382b 100%);
         }
@@ -76,29 +90,76 @@
     <!-- Sanity Integration -->
     <script src="js/sanity-client.js"></script>
     <script>
-        // Simple Portable Text to HTML converter
+        // Portable Text to HTML converter with full marks/annotations support
         function portableTextToHtml(blocks) {
             if (!blocks) return '';
-            return blocks.map(block => {
-                if (block._type !== 'block' || !block.children) {
-                    if (block._type === 'image') {
-                        return `<img src="${sanityClient.imageUrl(block)}" alt="Blog image" class="my-8 rounded-xl w-full" />`;
+
+            // Build a map of mark definitions (links etc.) keyed by _key
+            function renderChild(child, markDefs) {
+                let text = child.text || '';
+                if (!child.marks || child.marks.length === 0) return text;
+
+                child.marks.forEach(mark => {
+                    if (mark === 'strong') {
+                        text = `<strong>${text}</strong>`;
+                    } else if (mark === 'em') {
+                        text = `<em>${text}</em>`;
+                    } else if (mark === 'underline') {
+                        text = `<span style="text-decoration:underline">${text}</span>`;
+                    } else if (mark === 'strike-through' || mark === 'strikeThrough') {
+                        text = `<s>${text}</s>`;
+                    } else if (mark === 'code') {
+                        text = `<code>${text}</code>`;
+                    } else {
+                        // Look up annotation mark (e.g. link)
+                        const def = markDefs && markDefs.find(d => d._key === mark);
+                        if (def && def._type === 'link') {
+                            const href = def.href || '#';
+                            text = `<a href="${href}" target="_blank" rel="noopener noreferrer" class="rich-text-link">${text}</a>`;
+                        }
                     }
-                    return '';
+                });
+                return text;
+            }
+
+            const htmlParts = [];
+            let inList = false;
+
+            blocks.forEach(block => {
+                if (block._type !== 'block' || !block.children) {
+                    // Close any open list
+                    if (inList) { htmlParts.push('</ul>'); inList = false; }
+
+                    if (block._type === 'image') {
+                        htmlParts.push(`<img src="${sanityClient.imageUrl(block)}" alt="Blog image" class="my-8 rounded-xl w-full" />`);
+                    }
+                    return;
                 }
 
-                const text = block.children.map(child => child.text).join('');
+                const markDefs = block.markDefs || [];
+                const innerHTML = block.children.map(child => renderChild(child, markDefs)).join('');
+
+                if (block.listItem === 'bullet') {
+                    if (!inList) { htmlParts.push('<ul>'); inList = true; }
+                    htmlParts.push(`<li>${innerHTML}</li>`);
+                    return;
+                }
+
+                // Close list if we leave list items
+                if (inList) { htmlParts.push('</ul>'); inList = false; }
 
                 switch (block.style) {
-                    case 'h1': return `<h1>${text}</h1>`;
-                    case 'h2': return `<h2>${text}</h2>`;
-                    case 'h3': return `<h3>${text}</h3>`;
-                    case 'blockquote': return `<blockquote>${text}</blockquote>`;
-                    default:
-                        if (block.listItem === 'bullet') return `<li>${text}</li>`;
-                        return `<p>${text}</p>`;
+                    case 'h1': htmlParts.push(`<h1>${innerHTML}</h1>`); break;
+                    case 'h2': htmlParts.push(`<h2>${innerHTML}</h2>`); break;
+                    case 'h3': htmlParts.push(`<h3>${innerHTML}</h3>`); break;
+                    case 'h4': htmlParts.push(`<h4>${innerHTML}</h4>`); break;
+                    case 'blockquote': htmlParts.push(`<blockquote>${innerHTML}</blockquote>`); break;
+                    default: htmlParts.push(`<p>${innerHTML}</p>`); break;
                 }
-            }).join('');
+            });
+
+            if (inList) htmlParts.push('</ul>');
+            return htmlParts.join('');
         }
 
         async function loadPost() {

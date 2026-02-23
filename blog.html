@@ -302,7 +302,7 @@
               Article</span>
           </div>
           <div id="featured-post"
-            class="grid lg:grid-cols-2 gap-12 items-center blog-card bg-[#f7f8f3] rounded-3xl overflow-hidden">
+            class="grid lg:grid-cols-2 items-center blog-card bg-[#f7f8f3] rounded-3xl overflow-hidden">
             <!-- Dynamically generated from blogData.featured -->
           </div>
         </div>
@@ -460,8 +460,8 @@
       // Generate Featured Post
       const featured = data.featured;
       document.getElementById('featured-post').innerHTML = `
-        <div class="relative h-full min-h-[400px]">
-          <img src="${featured.image}" alt="Featured blog post" class="w-full h-full object-cover" />
+        <div class="relative self-stretch min-h-[400px] lg:min-h-[500px]">
+          <img src="${featured.image}" alt="Featured blog post" class="absolute inset-0 w-full h-full object-cover rounded-l-3xl" />
         </div>
         <div class="p-8 lg:p-12">
           <div class="flex gap-2 mb-4">
