@@ -380,6 +380,10 @@
   border-color: rgba(255, 255, 255, 0.4);
 }
 
+.mobile-menu-cta .mobile-menu-cta-btn + .mobile-menu-cta-btn {
+  margin-top: 12px;
+}
+
 /* Custom Scrollbar for Menu */
 .mobile-menu-container::-webkit-scrollbar {
   width: 6px;
