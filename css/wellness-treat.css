@@ -1,0 +1,145 @@
+.wellness-fade-up {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: wellnessFadeUp 700ms ease-out forwards;
+}
+
+.wellness-fade-up-delay {
+  animation-delay: 180ms;
+}
+
+.wellness-card {
+  animation: wellnessCardFloat 6.5s ease-in-out infinite;
+  transition: transform 280ms ease, filter 280ms ease;
+}
+
+.wellness-card:nth-child(2) {
+  animation-delay: 240ms;
+}
+
+.wellness-card:nth-child(3) {
+  animation-delay: 420ms;
+}
+
+.wellness-card:nth-child(4) {
+  animation-delay: 560ms;
+}
+
+.wellness-card:nth-child(5) {
+  animation-delay: 700ms;
+}
+
+.wellness-card:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.04);
+}
+
+.wellness-card-image {
+  transition: transform 380ms ease;
+}
+
+.wellness-card:hover .wellness-card-image {
+  transform: scale(1.03);
+}
+
+.wellness-cta {
+  transition: transform 220ms ease, background-color 220ms ease;
+}
+
+.wellness-cta:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 767px) {
+  .wellness-panel {
+    min-height: 620px;
+    border-radius: 20px;
+    padding: 18px 16px 20px;
+  }
+
+  .wellness-content {
+    max-width: 100%;
+  }
+
+  .wellness-heading {
+    font-size: 34px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .wellness-subtext {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-top: 12px;
+  }
+
+  .wellness-avatars {
+    margin-bottom: 16px;
+  }
+
+  .wellness-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .wellness-cta {
+    width: 100%;
+    justify-content: center;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 14px;
+  }
+
+  .wellness-cards-wrap {
+    margin-top: 20px;
+  }
+
+  .wellness-cards-track {
+    display: flex !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 12px;
+  }
+
+  .wellness-cards-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wellness-cards-track .wellness-card {
+    flex: 0 0 84% !important;
+    min-width: 84% !important;
+    scroll-snap-align: start;
+  }
+
+  .wellness-card-media {
+    height: 170px;
+  }
+
+  .wellness-card p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+}
+
+@keyframes wellnessCardFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes wellnessFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
